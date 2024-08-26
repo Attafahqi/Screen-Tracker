@@ -11,7 +11,7 @@ from PyQt5.QtGui import QPixmap
 import UI.res_rc
 
 def initialize_firebase():
-    cred = credentials.Certificate('C:/Users/attaf/Coding/Screen Time/screen-time-52e52-firebase-adminsdk-1aqkf-a9ef87a39b.json')
+    cred = credentials.Certificate('screen-time-52e52-firebase-adminsdk-1aqkf-e11d87c05a.json')
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://screen-time-52e52-default-rtdb.asia-southeast1.firebasedatabase.app/'
     })
