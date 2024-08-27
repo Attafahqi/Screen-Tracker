@@ -208,7 +208,9 @@ class Login (QMainWindow):
 
         if device_name == "admin":
             print("Opening Admin Panel...")
+            admin_check = "True"
             self.close()
+            os.environ['ADMIN_CHECK'] = admin_check
             subprocess.run([sys.executable, 'admin.py'])
             QApplication.quit()
 

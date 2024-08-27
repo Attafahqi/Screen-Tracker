@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 import firebase_admin
@@ -9,6 +10,8 @@ from PyQt5 import uic
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 import UI.res_rc
+
+
 
 def initialize_firebase():
     cred = credentials.Certificate('screen-time-52e52-firebase-adminsdk-1aqkf-e11d87c05a.json')
@@ -137,6 +140,11 @@ class Admin (QMainWindow):
         msg.exec_()
         
 if __name__ == "__main__":
+
+    if not os.environ['ADMIN_CHECK'] :
+         QApplication.quit()
+
+
     initialize_firebase()
     app = QApplication([])
     window = Admin()

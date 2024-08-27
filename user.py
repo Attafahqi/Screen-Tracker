@@ -126,6 +126,9 @@ class User (QMainWindow):
         msg.exec_()
         
 if __name__ == "__main__":
+    if not os.environ['DEVICE_NAME'] :
+         QApplication.quit()
+
     initialize_firebase()
     app = QApplication([])
     window = User()
