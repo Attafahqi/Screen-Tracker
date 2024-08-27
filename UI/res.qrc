@@ -1,9 +1,8 @@
 <RCC>
   <qresource prefix="img">
-    <file>user_legend.png</file>
-    <file>admin_legend.png</file>
-    <file>user_graph.png</file>
-    <file>admin_graph.png</file>
+    <file>Trasnparant.png</file>
+    <file>admin_start.png</file>
+    <file>user_start.png</file>
     <file>Background.png</file>
     <file>Backgroung_2.png</file>
   </qresource>
