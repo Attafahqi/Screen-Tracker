@@ -130,9 +130,14 @@ def load_from_json(file_path):
     with open(file_path, 'r') as json_file:
         return json.load(json_file)
 
-cred = credentials.Certificate('screen-time-52e52-firebase-adminsdk-1aqkf-e11d87c05a.json')
+
+firebasecread_file = 'FirebaseCred.json'
+data = load_from_json(firebasecread_file)
+firebase_key = data['firebase_key']
+data_url = data.get('data_url')
+cred = credentials.Certificate(firebase_key)
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://screen-time-52e52-default-rtdb.asia-southeast1.firebasedatabase.app/'
+      'databaseURL': data_url
 })
 
 device_name_file = 'DeviceName.json'

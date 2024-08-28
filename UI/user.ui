@@ -217,7 +217,7 @@ padding: 2px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/img/user_legend.png);</string>
+    <string notr="true">border-image: url(:/img/Transparan.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -233,7 +233,7 @@ padding: 2px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/img/user_graph.png);</string>
+    <string notr="true">border-image: url(:/img/user_start.png);</string>
    </property>
    <property name="text">
     <string/>

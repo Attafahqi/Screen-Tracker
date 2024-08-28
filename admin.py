@@ -1,4 +1,5 @@
 import os
+import json
 import matplotlib.pyplot as plt
 import numpy as np
 import firebase_admin
@@ -12,12 +13,19 @@ from PyQt5.QtGui import QPixmap
 import UI.res_rc
 
 
-
 def initialize_firebase():
-    cred = credentials.Certificate('screen-time-52e52-firebase-adminsdk-1aqkf-e11d87c05a.json')
+    firebasecread_file = 'FirebaseCred.json'
+    data = load_from_json(firebasecread_file)
+    firebase_key = data['firebase_key']
+    data_url = data.get('data_url')
+    cred = credentials.Certificate(firebase_key)
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://screen-time-52e52-default-rtdb.asia-southeast1.firebasedatabase.app/'
+        'databaseURL': data_url
     })
+
+def load_from_json(file_path):
+    with open(file_path, 'r') as json_file:
+        return json.load(json_file)
 
 def get_data_from_firebase(device_name, start_date, end_date):
     ref = db.reference(f'device/{device_name}')  

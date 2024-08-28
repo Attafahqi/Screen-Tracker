@@ -256,7 +256,7 @@ QPushButton:pressed {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/img/admin_graph.png);</string>
+    <string notr="true">border-image: url(:/img/admin_start.png);</string>
    </property>
    <property name="text">
     <string/>
@@ -272,7 +272,7 @@ QPushButton:pressed {
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border-image: url(:/img/admin_legend.png);</string>
+    <string notr="true">border-image: url(:/img/Transparan.png);</string>
    </property>
    <property name="text">
     <string/>

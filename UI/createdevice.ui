@@ -264,7 +264,7 @@ QPushButton:pressed {
   </widget>
  </widget>
  <resources>
-  <include location="../login/res.qrc"/>
+  <include location="res.qrc"/>
   <include location="res.qrc"/>
  </resources>
  <connections/>

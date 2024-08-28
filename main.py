@@ -9,11 +9,27 @@ from PyQt5 import uic
 from PyQt5.QtCore import Qt
 import UI.res_rc
 
-cred = credentials.Certificate('screen-time-52e52-firebase-adminsdk-1aqkf-e11d87c05a.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://screen-time-52e52-default-rtdb.asia-southeast1.firebasedatabase.app/'
-})
+def initialize_firebase():
+    firebasecread_file = 'FirebaseCred.json'
+    data = load_from_json(firebasecread_file)
+    firebase_key = data['firebase_key']
+    data_url = data.get('data_url')
+    cred = credentials.Certificate(firebase_key)
+    firebase_admin.initialize_app(cred, {
+        'databaseURL': data_url
+    })
 
+def load_from_json(file_path):
+    with open(file_path, 'r') as json_file:
+        return json.load(json_file)
+
+def check_firebase_file():
+    try:
+        with open('FirebaseCred.json', 'r') as file:
+            return True
+    except FileNotFoundError:
+        return False
+    
 def check_device_file():
     try:
         with open('DeviceName.json', 'r') as file:
@@ -228,17 +244,48 @@ class Login (QMainWindow):
         msg.setWindowTitle("Warning")
         msg.exec_()
 
+class FirebaseEntry (QMainWindow):
+    def __init__(self):
+        super(FirebaseEntry, self).__init__()
+        uic.loadUi("UI/firebaseentry.ui", self)
+        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowFlags(Qt.FramelessWindowHint)
+        self.show()
+
+        self.Submit.clicked.connect(self.firebaseentry)
+        self.Exit.clicked.connect(self.quit)
+
+    def quit(self):
+        QApplication.quit()
+
+    def firebaseentry(self):
+        firebase_key = self.FirebaseKey.text()
+        data_url = self.DataURL.text()
+
+        firebase_info = {"firebase_key": firebase_key, "data_url": data_url}
+        with open('FirebaseCred.json', 'w') as file:
+            json.dump(firebase_info, file)
+        
+        self.quit()
+        
+
 
 def main():
-    if not check_device_file():
-        app = QApplication([])
-        window = InitialPage()
+    app = QApplication(sys.argv)
+
+    if not check_firebase_file():
+        window = FirebaseEntry()
         app.exec_()
 
+    initialize_firebase()
+
+    if not check_device_file():
+        window = InitialPage()
     else:
-        app = QApplication([])
         window = Login()
-        app.exec_()
+
+    window.show()
+    app.exec_()
 
 if __name__ == "__main__":
     main()
