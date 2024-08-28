@@ -111,20 +111,12 @@ padding: 2px;</string>
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
     color: white;
     border-radius: 10px;
-    text-shadow: 6px 6px 4px rgba(0, 0, 0, 1);
-    transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-QPushButton:hover {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(22, 55, 229, 255), stop:1 rgba(65, 141, 237, 255));
-    cursor: pointer;  /* Change cursor to pointer (hand icon) */
-}
 
 QPushButton:pressed {
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 30, 180, 255), stop:1 rgba(50, 100, 200, 255));
-    transform: scale(0.95);
-}
-</string>
+}</string>
    </property>
    <property name="text">
     <string>Generate Graph</string>
