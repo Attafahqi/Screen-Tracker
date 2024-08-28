@@ -9,7 +9,7 @@ import matplotlib.dates as mdates
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QIcon
 import UI.res_rc
 
 device_name = os.getenv('DEVICE_NAME')
@@ -97,7 +97,8 @@ class User (QMainWindow):
     def __init__(self):
         super(User, self).__init__()
         uic.loadUi("UI/user.ui", self)
-        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
 

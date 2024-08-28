@@ -7,6 +7,7 @@ from firebase_admin import credentials, db
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIcon
 import UI.res_rc
 
 def initialize_firebase():
@@ -58,7 +59,8 @@ class InitialPage(QMainWindow):
         super(InitialPage, self).__init__()
         uic.loadUi("UI/initialpage.ui", self)
         self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.show()
         
         self.CreateNewDevice.clicked.connect(self.openCreateNewDevice)
@@ -82,7 +84,8 @@ class CreateNewDevice(QMainWindow):
     def __init__(self):
         super(CreateNewDevice, self).__init__()
         uic.loadUi("UI/createdevice.ui", self)
-        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
 
@@ -140,7 +143,8 @@ class LoginInNewDevice(QMainWindow):
     def __init__(self):
         super(LoginInNewDevice, self).__init__()
         uic.loadUi("UI/logininnewdevice.ui", self)
-        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
 
@@ -194,7 +198,8 @@ class Login (QMainWindow):
     def __init__(self):
         super(Login, self).__init__()
         uic.loadUi("UI/login.ui", self)
-        self.setWindowTitle("APK Screen Tracker")
+        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
 
@@ -249,6 +254,7 @@ class FirebaseEntry (QMainWindow):
         super(FirebaseEntry, self).__init__()
         uic.loadUi("UI/firebaseentry.ui", self)
         self.setWindowTitle("APK Screen Tracker")
+        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
 
