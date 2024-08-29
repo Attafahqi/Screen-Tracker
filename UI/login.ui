@@ -233,7 +233,7 @@ QPushButton:pressed {
   <zorder>Exit</zorder>
  </widget>
  <resources>
-  <include location="../login/res.qrc"/>
+  <include location="res.qrc"/>
   <include location="res.qrc"/>
  </resources>
  <connections/>

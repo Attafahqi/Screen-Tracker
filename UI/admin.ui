@@ -2,23 +2,35 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
+    <width>1749</width>
     <height>720</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <widget class="QLabel" name="Background">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-1</x>
      <y>0</y>
-     <width>1280</width>
+     <width>1751</width>
      <height>720</height>
     </rect>
    </property>
@@ -33,7 +45,7 @@ border-radius: 0px;</string>
   <widget class="QLabel" name="Shadow">
    <property name="geometry">
     <rect>
-     <x>950</x>
+     <x>1420</x>
      <y>0</y>
      <width>331</width>
      <height>720</height>
@@ -51,7 +63,7 @@ border-bottom-right-radius: 20px;</string>
   <widget class="QDateEdit" name="StartDate">
    <property name="geometry">
     <rect>
-     <x>1010</x>
+     <x>1480</x>
      <y>200</y>
      <width>211</width>
      <height>51</height>
@@ -89,7 +101,7 @@ padding: 2px;</string>
   <widget class="QDateEdit" name="EndDate">
    <property name="geometry">
     <rect>
-     <x>1010</x>
+     <x>1480</x>
      <y>320</y>
      <width>211</width>
      <height>51</height>
@@ -127,7 +139,7 @@ padding: 2px;</string>
   <widget class="QLabel" name="SubTitleSD">
    <property name="geometry">
     <rect>
-     <x>1010</x>
+     <x>1480</x>
      <y>150</y>
      <width>161</width>
      <height>51</height>
@@ -151,7 +163,7 @@ padding: 2px;</string>
   <widget class="QLabel" name="SubTitleED">
    <property name="geometry">
     <rect>
-     <x>1010</x>
+     <x>1480</x>
      <y>270</y>
      <width>161</width>
      <height>51</height>
@@ -175,7 +187,7 @@ padding: 2px;</string>
   <widget class="QLineEdit" name="DeviceName">
    <property name="geometry">
     <rect>
-     <x>1010</x>
+     <x>1480</x>
      <y>80</y>
      <width>211</width>
      <height>41</height>
@@ -211,7 +223,7 @@ padding-bottom:7px;
   <widget class="QPushButton" name="Generate">
    <property name="geometry">
     <rect>
-     <x>970</x>
+     <x>1440</x>
      <y>570</y>
      <width>291</width>
      <height>111</height>
@@ -248,8 +260,8 @@ QPushButton:pressed {
   <widget class="QLabel" name="Graph">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
+     <x>470</x>
+     <y>40</y>
      <width>921</width>
      <height>691</height>
     </rect>
@@ -264,10 +276,10 @@ QPushButton:pressed {
   <widget class="QLabel" name="Legend">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>50</y>
-     <width>391</width>
-     <height>191</height>
+     <x>10</x>
+     <y>480</y>
+     <width>441</width>
+     <height>231</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -280,7 +292,7 @@ QPushButton:pressed {
   <widget class="QPushButton" name="Exit">
    <property name="geometry">
     <rect>
-     <x>1240</x>
+     <x>1710</x>
      <y>0</y>
      <width>41</width>
      <height>23</height>
@@ -305,6 +317,109 @@ QPushButton:pressed {
     <string>X</string>
    </property>
   </widget>
+  <widget class="QLabel" name="TotalTime">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>400</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>28</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Graph_2">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>70</y>
+     <width>300</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/Trasnparant.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TotalText">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>360</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background2_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>461</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 120);
+border-top-right-radius: 0px; 
+border-bottom-right-radius: 0px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>Background</zorder>
+  <zorder>Shadow</zorder>
+  <zorder>Background2_2</zorder>
+  <zorder>StartDate</zorder>
+  <zorder>SubTitleSD</zorder>
+  <zorder>SubTitleED</zorder>
+  <zorder>DeviceName</zorder>
+  <zorder>Graph</zorder>
+  <zorder>Legend</zorder>
+  <zorder>TotalTime</zorder>
+  <zorder>Graph_2</zorder>
+  <zorder>TotalText</zorder>
+  <zorder>Generate</zorder>
+  <zorder>EndDate</zorder>
+  <zorder>Exit</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

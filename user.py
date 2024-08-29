@@ -6,7 +6,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from datetime import datetime, timedelta
 import matplotlib.dates as mdates
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QDesktopWidget
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
@@ -91,12 +91,37 @@ def generate_graphs(data, start_date, end_date):
     fig_legend.gca().axis('off')
     fig_legend.savefig('Ui/user_legend.png', bbox_inches='tight', dpi=300, transparent=True)
 
-    return True
+    total_time_per_activity = {}
+    for activity in activities:
+        total_time = sum(data.get(date, {}).get(activity, timedelta()).total_seconds() for date in dates)
+        total_time_per_activity[activity] = total_time
+
+    total_time_seconds = int(sum(total_time_per_activity.values()))
+    num_days = (end_date - start_date).days
+    total_inactive_time_seconds = ((num_days + 1) * 86400) - total_time_seconds
+    percentage = f"{total_time_seconds * 100 / ((num_days + 1) * 86400):.1f}%" 
+    
+    hours, remainder = divmod(total_time_seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+    formatted_time = f"{hours:02}H {minutes:02}M {seconds:02}S"
+
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.pie(
+        [total_time_seconds, total_inactive_time_seconds],
+        wedgeprops={'width': 0.3},
+        startangle=90,
+        colors=['#5DADE2', '#515A5A']
+    )
+    plt.text(0, 0, percentage, ha='center', va='center', fontsize=42, color='white')
+    plt.savefig('UI/user_donutchart.png', bbox_inches='tight', dpi=300, transparent=True)
+
+    return formatted_time, num_days
 
 class User (QMainWindow):
     def __init__(self):
         super(User, self).__init__()
         uic.loadUi("UI/user.ui", self)
+        self.center()
         self.setWindowTitle("FAP Screen Tracker")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -105,6 +130,12 @@ class User (QMainWindow):
         self.Generate.clicked.connect(self.admin)
         self.Exit.clicked.connect(self.quit)
 
+    def center(self):
+        frame_geometry = self.frameGeometry()
+        screen_center = QDesktopWidget().availableGeometry().center()
+        frame_geometry.moveCenter(screen_center)
+        self.move(frame_geometry.topLeft())
+    
     def quit(self):
         QApplication.quit()
     
@@ -121,12 +152,17 @@ class User (QMainWindow):
         activities = get_data_from_firebase(device_name, start_date, end_date)
         
         data = aggregate_data(activities, start_date, end_date)
-        generate_graphs(data, start_date, end_date)
+        formatted_time, num_days = generate_graphs(data, start_date, end_date)
         self.Graph.setStyleSheet(f"border-image: url(UI/user_graph.png);")
         self.Graph.repaint()
         self.Legend.setStyleSheet(f"border-image: url(UI/user_legend.png);")
         self.Legend.repaint()
+        self.Graph_2.setStyleSheet(f"border-image: url(UI/admin_donutchart.png);")
+        self.Graph_2.repaint()
+        self.TotalText.setText("Total Screen Time in " + str(num_days) + " days")
+        self.TotalTime.setText(formatted_time)
         data = 0
+    
     
     def show_popup_message(self, message):
         msg = QMessageBox()

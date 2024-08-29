@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>admin_donutchart.png</file>
     <file>Trasnparant.png</file>
     <file>admin_start.png</file>
     <file>user_start.png</file>

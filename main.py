@@ -260,7 +260,7 @@ class FirebaseEntry (QMainWindow):
 
         self.Submit.clicked.connect(self.firebaseentry)
         self.Exit.clicked.connect(self.quit)
-
+    
     def quit(self):
         QApplication.quit()
 
