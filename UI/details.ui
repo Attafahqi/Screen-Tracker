@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1749</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="Background2">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>0</y>
+     <width>331</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 0, 0, 95);
+border-top-right-radius: 20px; 
+border-bottom-right-radius: 20px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background">
+   <property name="geometry">
+    <rect>
+     <x>-1</x>
+     <y>0</y>
+     <width>1751</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:url(:/img/Backgroung_2.png);
+border-radius: 0px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BacktoGenerate">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>570</y>
+     <width>291</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
+    color: white;
+    border-radius: 10px;
+}
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 30, 180, 255), stop:1 rgba(50, 100, 200, 255));
+}</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Legend">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>441</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/Transparan.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Exit">
+   <property name="geometry">
+    <rect>
+     <x>1710</x>
+     <y>0</y>
+     <width>41</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 255), stop:1 rgba(255, 47, 47, 255));
+    color: white;
+    border-radius: 0px;</string>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TotalText">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>360</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>16</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TotalTime">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>400</y>
+     <width>331</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>28</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>80</y>
+     <width>1221</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableWidget {
+	background-color: rgba(0, 0, 0, 0);
+	gridline-color: 2px solid rgb(255, 255, 255);
+	color: white;
+	font: 10pt &quot;Arial&quot;;
+	border: none;
+	border-left : 2px solid rgb(255, 255, 255);
+	border-right : 2px solid rgb(255, 255, 255);
+	border-bottom : 2px solid rgb(255, 255, 255);
+	border-radius: 7px;
+}
+QHeaderView {
+	font: 700 12pt &quot;Arial&quot;;
+	color: white;
+	background-color: rgb(255, 255, 255); 
+	border: 2px  rgb(255, 255, 255);
+	border-radius: 7px;
+}
+QHeaderView::section{
+	font: 700 12pt &quot;Arial&quot;;
+	color:  rgb(42, 46, 49);
+	background-color:  rgb(255, 255, 255); 
+	border-center: 1px white;
+}
+
+/* VERTICAL SCROLLBAR */
+ QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(80, 80, 122);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgb(95, 95, 145);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(65, 65, 99);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(80, 80, 122);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(65, 65, 99);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(80, 80, 122);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(65, 65, 99);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+
+/* HORIZONTAL SCROLLBAR */
+QScrollBar:horizontal {
+    border: none;
+    background: rgb(45, 45, 68);
+    height: 14px;
+    margin: 0 15px 0 15px;
+    border-radius: 0px;
+}
+
+/* HANDLE BAR HORIZONTAL */
+QScrollBar::handle:horizontal {    
+    background-color: rgb(80, 80, 122);
+    min-width: 30px;
+    border-radius: 7px;
+}
+QScrollBar::handle:horizontal:hover {    
+    background-color: rgb(95, 95, 145);
+}
+QScrollBar::handle:horizontal:pressed {    
+    background-color: rgb(65, 65, 99);
+}
+
+/* BTN LEFT - SCROLLBAR */
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background-color: rgb(59, 59, 90);
+    width: 15px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal:hover {    
+    background-color: rgb(80, 80, 122);
+}
+QScrollBar::sub-line:horizontal:pressed {    
+    background-color: rgb(65, 65, 99);
+}
+
+/* BTN RIGHT - SCROLLBAR */
+QScrollBar::add-line:horizontal {
+    border: none;
+    background-color: rgb(59, 59, 90);
+    width: 15px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::add-line:horizontal:hover {    
+    background-color: rgb(80, 80, 122);
+}
+QScrollBar::add-line:horizontal:pressed {    
+    background-color: rgb(65, 65, 99);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
+    background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+</string>
+   </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideRight</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
+   </property>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Activity</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Total Time</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="SubTitleSD_2">
+   <property name="geometry">
+    <rect>
+     <x>1470</x>
+     <y>240</y>
+     <width>198</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>End Date:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="start_date_label_2">
+   <property name="geometry">
+    <rect>
+     <x>1470</x>
+     <y>150</y>
+     <width>222</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Perpetua</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>2024-08-01</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="end_date_label_2">
+   <property name="geometry">
+    <rect>
+     <x>1470</x>
+     <y>280</y>
+     <width>222</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Perpetua</family>
+     <pointsize>36</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>2024-09-01</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SubTitleSD_3">
+   <property name="geometry">
+    <rect>
+     <x>1470</x>
+     <y>110</y>
+     <width>222</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>Start Date:</string>
+   </property>
+  </widget>
+  <zorder>Background</zorder>
+  <zorder>Background2</zorder>
+  <zorder>BacktoGenerate</zorder>
+  <zorder>Exit</zorder>
+  <zorder>TotalText</zorder>
+  <zorder>TotalTime</zorder>
+  <zorder>Legend</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>SubTitleSD_2</zorder>
+  <zorder>start_date_label_2</zorder>
+  <zorder>end_date_label_2</zorder>
+  <zorder>SubTitleSD_3</zorder>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

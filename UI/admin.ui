@@ -224,7 +224,7 @@ padding-bottom:7px;
    <property name="geometry">
     <rect>
      <x>1440</x>
-     <y>570</y>
+     <y>540</y>
      <width>291</width>
      <height>111</height>
     </rect>
@@ -405,6 +405,45 @@ border-bottom-right-radius: 0px;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="Details">
+   <property name="geometry">
+    <rect>
+     <x>1450</x>
+     <y>660</y>
+     <width>261</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    color: white;
+    border: 0px;
+	text-decoration: underline;
+}
+QPushButton:hover {
+    color: lightgray; 
+}
+
+QPushButton:pressed {
+    color: darkgray;
+}</string>
+   </property>
+   <property name="text">
+    <string>View Activity Details</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Shadow</zorder>
   <zorder>Background2_2</zorder>
@@ -420,6 +459,7 @@ border-bottom-right-radius: 0px;</string>
   <zorder>Generate</zorder>
   <zorder>EndDate</zorder>
   <zorder>Exit</zorder>
+  <zorder>Details</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>
