@@ -444,6 +444,22 @@ QPushButton:pressed {
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1749</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/Bar_UI.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Shadow</zorder>
   <zorder>Background2_2</zorder>
@@ -458,8 +474,9 @@ QPushButton:pressed {
   <zorder>TotalText</zorder>
   <zorder>Generate</zorder>
   <zorder>EndDate</zorder>
-  <zorder>Exit</zorder>
   <zorder>Details</zorder>
+  <zorder>label</zorder>
+  <zorder>Exit</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

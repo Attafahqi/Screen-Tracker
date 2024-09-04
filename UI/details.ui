@@ -495,10 +495,25 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
     <string>Start Date:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1749</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/Bar_UI.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Background2</zorder>
   <zorder>BacktoGenerate</zorder>
-  <zorder>Exit</zorder>
   <zorder>TotalText</zorder>
   <zorder>TotalTime</zorder>
   <zorder>Legend</zorder>
@@ -507,6 +522,8 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
   <zorder>start_date_label_2</zorder>
   <zorder>end_date_label_2</zorder>
   <zorder>SubTitleSD_3</zorder>
+  <zorder>label</zorder>
+  <zorder>Exit</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>
