@@ -130,7 +130,7 @@ class User (QMainWindow):
         super(User, self).__init__()
         uic.loadUi("UI/user.ui", self)
         self.center()
-        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
@@ -204,7 +204,7 @@ class DetailsWindow(QMainWindow):
         super(DetailsWindow, self).__init__()
         uic.loadUi("UI/details.ui", self)
         self.center()
-        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         

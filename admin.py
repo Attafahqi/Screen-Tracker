@@ -133,7 +133,7 @@ class Admin (QMainWindow):
         super(Admin, self).__init__()
         uic.loadUi("UI/admin.ui", self)
         self.center()
-        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.show()
@@ -218,7 +218,7 @@ class DetailsWindow(QMainWindow):
         super(DetailsWindow, self).__init__()
         uic.loadUi("UI/details.ui", self)
         self.center()
-        self.setWindowTitle("FAP Screen Tracker")
+        self.setWindowTitle("TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
         
@@ -270,7 +270,7 @@ class DetailsWindow(QMainWindow):
                 parts.append(f"{hours}h")
             if minutes > 0:
                 parts.append(f"{minutes}m")
-            if seconds > 0 or not parts:  # Always show seconds if there are no hours and minutes
+            if seconds > 0 or not parts:  
                 parts.append(f"{seconds}s")
             
             return ' '.join(parts) 
