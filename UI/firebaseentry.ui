@@ -94,10 +94,10 @@ QPushButton:pressed {
   <widget class="QPushButton" name="Exit">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>540</x>
      <y>0</y>
-     <width>41</width>
-     <height>23</height>
+     <width>60</width>
+     <height>35</height>
     </rect>
    </property>
    <property name="font">
