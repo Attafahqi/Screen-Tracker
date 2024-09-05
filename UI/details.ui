@@ -60,8 +60,9 @@ border-radius: 0px;</string>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>18</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -73,6 +74,10 @@ border-radius: 0px;</string>
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
     color: white;
     border-radius: 10px;
+	font-size: 25px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;
 }
 
 
@@ -409,13 +414,18 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>20</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+font-size: 30px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>End Date:</string>
@@ -425,7 +435,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="geometry">
     <rect>
      <x>1470</x>
-     <y>150</y>
+     <y>160</y>
      <width>222</width>
      <height>55</height>
     </rect>
@@ -433,14 +443,18 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="font">
     <font>
      <family>Perpetua</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+font-size: 45px;
+font-family: &quot;Perpetua&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>2024-08-01</string>
@@ -450,7 +464,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="geometry">
     <rect>
      <x>1470</x>
-     <y>280</y>
+     <y>290</y>
      <width>222</width>
      <height>55</height>
     </rect>
@@ -458,14 +472,18 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="font">
     <font>
      <family>Perpetua</family>
-     <pointsize>36</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);</string>
+    <string notr="true">color: rgb(255, 255, 255);
+font-size: 45px;
+font-family: &quot;Perpetua&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>2024-09-01</string>
@@ -483,13 +501,18 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>20</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+font-size: 30px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>Start Date:</string>

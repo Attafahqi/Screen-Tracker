@@ -57,6 +57,14 @@ def aggregate_data(activities, start_date, end_date):
     return data
 
 def generate_graphs(data, start_date, end_date):
+    num_days = (end_date - start_date).days
+    if num_days > 30 :
+        show =  7
+    if num_days > 7 :
+        show = 3
+    else :
+        show = 1
+
     dates = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
     activities = set()
     for day_data in data.values():
@@ -82,7 +90,7 @@ def generate_graphs(data, start_date, end_date):
     ax.set_xlabel('Date', color= 'white')
     ax.set_ylabel('Hours', color= 'white')
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    ax.xaxis.set_major_locator(mdates.DayLocator(interval=5))
+    ax.xaxis.set_major_locator(mdates.DayLocator(interval=show))
     fig.autofmt_xdate()
     ax.set_facecolor('white')
     ax.tick_params(axis='both', colors='white')
@@ -105,7 +113,6 @@ def generate_graphs(data, start_date, end_date):
         total_time_per_activity[activity] = total_time
 
     total_time_seconds = int(sum(total_time_per_activity.values()))
-    num_days = (end_date - start_date).days
     total_inactive_time_seconds = ((num_days + 1) * 86400) - total_time_seconds
     percentage = f"{total_time_seconds * 100 / ((int(num_days) + 1) * 86400):.2f}%" 
     
@@ -168,6 +175,7 @@ class User (QMainWindow):
         self.Legend.repaint()
         self.Graph_2.setStyleSheet(f"border-image: url(UI/user_donutchart.png);")
         self.Graph_2.repaint()
+        self.DeviceName.setText(device_name)
         self.TotalText.setText("Total Screen Time in " + str(num_days+1) + " days")
         self.TotalTime.setText(formatted_time)
         data = 0

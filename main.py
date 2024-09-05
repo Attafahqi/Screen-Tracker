@@ -38,35 +38,9 @@ def check_device_file():
     except FileNotFoundError:
         return False
 
-class InitialPage(QMainWindow):
+class NewDevice(QMainWindow):
     def __init__(self):
-        super(InitialPage, self).__init__()
-        uic.loadUi("UI/initialpage.ui", self)
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setWindowTitle("FAP TimeSpy")
-        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
-        self.show()
-        
-        self.CreateNewDevice.clicked.connect(self.openCreateNewDevice)
-        self.LoginInNewDevice.clicked.connect(self.openLoginInNewDevice)
-        self.Exit.clicked.connect(self.quit)
-
-    def quit(self):
-        QApplication.quit()
-
-    def openCreateNewDevice(self):
-        self.createDeviceWindow = CreateNewDevice()
-        self.createDeviceWindow.show()
-        self.close()
-
-    def openLoginInNewDevice(self):
-        self.loginDeviceWindow = LoginInNewDevice()
-        self.loginDeviceWindow.show()
-        self.close()
-    
-class CreateNewDevice(QMainWindow):
-    def __init__(self):
-        super(CreateNewDevice, self).__init__()
+        super(NewDevice, self).__init__()
         uic.loadUi("UI/createdevice.ui", self)
         self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
@@ -74,8 +48,24 @@ class CreateNewDevice(QMainWindow):
         self.show()
 
         self.CreateNewDevice.clicked.connect(self.create_new_device)
-        self.Back.clicked.connect(self.back_to_initialpage)
+        self.LoginInNewDevice.clicked.connect(self.login_in_new_device)
         self.Exit.clicked.connect(self.quit)
+        self.LoginOption.clicked.connect(self.LoginOptionPage)
+        self.CreateOption.clicked.connect(self.CreateOptionPage)
+        self.CreateOption.setHidden(True)
+        self.LoginInNewDevice.setHidden(True)
+
+    def LoginOptionPage(self):
+        self.CreateOption.setHidden(False)
+        self.LoginInNewDevice.setHidden(False)
+        self.LoginOption.setHidden(True)
+        self.CreateNewDevice.setHidden(True)
+
+    def CreateOptionPage(self):
+        self.CreateOption.setHidden(True)
+        self.LoginInNewDevice.setHidden(True)
+        self.LoginOption.setHidden(False)
+        self.CreateNewDevice.setHidden(False)
 
     def quit(self):
         QApplication.quit()
@@ -111,34 +101,6 @@ class CreateNewDevice(QMainWindow):
         self.close()
         return True
 
-    def show_warning(self, message):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Warning)
-        msg.setText(message)
-        msg.setWindowTitle("Warning")
-        msg.exec_()
-
-    def back_to_initialpage(self):
-        self.initialPageWindow = InitialPage()
-        self.initialPageWindow.show()
-        self.close()  
-
-class LoginInNewDevice(QMainWindow):
-    def __init__(self):
-        super(LoginInNewDevice, self).__init__()
-        uic.loadUi("UI/logininnewdevice.ui", self)
-        self.setWindowTitle("FAP TimeSpy")
-        self.setWindowIcon(QIcon("UI/FAP Logo.png"))
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.show()
-
-        self.LoginInNewDevice.clicked.connect(self.login_in_new_device)
-        self.Back.clicked.connect(self.back_to_initialpage)
-        self.Exit.clicked.connect(self.quit)
-
-    def quit(self):
-        QApplication.quit()
-
     def login_in_new_device(self):
         device_name = self.DeviceName.text()
         password = self.Password.text()
@@ -165,18 +127,13 @@ class LoginInNewDevice(QMainWindow):
             json.dump(device_info, file)
 
         return True
-    
+
     def show_warning(self, message):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Warning)
         msg.setText(message)
         msg.setWindowTitle("Warning")
         msg.exec_()
-
-    def back_to_initialpage(self):
-        self.initialPageWindow = InitialPage()
-        self.initialPageWindow.show()
-        self.close() 
 
 class Login (QMainWindow):
     def __init__(self):
@@ -270,7 +227,7 @@ def main():
     initialize_firebase()
 
     if not check_device_file():
-        window = InitialPage()
+        window = NewDevice()
     else:
         window = Login()
 

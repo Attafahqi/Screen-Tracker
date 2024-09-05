@@ -72,8 +72,9 @@ border-bottom-right-radius: 20px;</string>
    <property name="font">
     <font>
      <family>Perpetua</family>
-     <pointsize>24</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -85,7 +86,11 @@ border-bottom-right-radius: 20px;</string>
 color: rgb(255, 255, 255);  
 border: 1px solid #888888;
 border-radius: 5px; 
-padding: 2px;</string>
+padding: 2px;
+font-size: 32px;
+font-family: &quot;Perpetua&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -110,8 +115,9 @@ padding: 2px;</string>
    <property name="font">
     <font>
      <family>Perpetua</family>
-     <pointsize>24</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -123,7 +129,11 @@ padding: 2px;</string>
 color: rgb(255, 255, 255);  
 border: 1px solid #888888;
 border-radius: 5px; 
-padding: 2px;</string>
+padding: 2px;
+font-size: 32px;
+font-family: &quot;Perpetua&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -148,13 +158,18 @@ padding: 2px;</string>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>20</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+font-size: 30px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>Start Date</string>
@@ -172,13 +187,18 @@ padding: 2px;</string>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>20</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+font-size: 30px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;</string>
    </property>
    <property name="text">
     <string>End Date</string>
@@ -196,7 +216,7 @@ padding: 2px;</string>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>16</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
@@ -208,6 +228,10 @@ border:none;
 color:rgb(255, 255, 255);
 border-bottom: 2px solid rgba(255, 255, 255, 100);
 padding-bottom:7px;
+font-size: 20px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;
 </string>
    </property>
    <property name="text">
@@ -232,8 +256,9 @@ padding-bottom:7px;
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>18</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
@@ -245,6 +270,10 @@ padding-bottom:7px;
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
     color: white;
     border-radius: 10px;
+	font-size: 25px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;
 }
 
 
@@ -320,22 +349,27 @@ QPushButton:pressed {
   <widget class="QLabel" name="TotalTime">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>0</x>
      <y>400</y>
-     <width>331</width>
+     <width>461</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>28</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+	font-size: 45px;
+ 	font-family: &quot;SF Pro Display&quot;; 
+	font-weight: bold; 
+    font-style: normal;</string>
    </property>
    <property name="text">
     <string/>
@@ -347,10 +381,10 @@ QPushButton:pressed {
   <widget class="QLabel" name="Graph_2">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>70</y>
-     <width>300</width>
-     <height>300</height>
+     <x>30</x>
+     <y>0</y>
+     <width>401</width>
+     <height>401</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -363,22 +397,29 @@ QPushButton:pressed {
   <widget class="QLabel" name="TotalText">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>0</x>
      <y>360</y>
-     <width>331</width>
+     <width>461</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>SF Pro Display</family>
-     <pointsize>16</pointsize>
+     <pointsize>-1</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
+     <strikeout>false</strikeout>
+     <kerning>true</kerning>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(255, 255, 255)</string>
+    <string notr="true">color:rgb(255, 255, 255);
+	font-size: 20px;
+ 	font-family: &quot;SF Pro Display&quot;; 
+	font-weight: bold; 
+    font-style: normal;</string>
    </property>
    <property name="text">
     <string/>
@@ -416,7 +457,9 @@ border-bottom-right-radius: 0px;</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>11</pointsize>
+     <family>SF Pro Display</family>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
      <underline>true</underline>
     </font>
    </property>
@@ -428,6 +471,10 @@ border-bottom-right-radius: 0px;</string>
     color: white;
     border: 0px;
 	text-decoration: underline;
+font-size: 15px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: reguler; 
+font-style: normal;
 }
 QPushButton:hover {
     color: lightgray; 
