@@ -38,22 +38,6 @@ def check_device_file():
     except FileNotFoundError:
         return False
 
-
-def login_to_device():
-    device_name = input("Enter Device Name: ")
-    password = input("Enter Password: ")
-
-    ref = db.reference(f'device/{device_name}')
-    device_data = ref.get()
-
-    if device_data is None or device_data.get('password') != password:
-        print("Incorrect Device Name or Password.")
-        return
-
-    device_info = {"device_name": device_name, "password": password}
-    with open('DeviceName.json', 'w') as file:
-        json.dump(device_info, file)
-
 class InitialPage(QMainWindow):
     def __init__(self):
         super(InitialPage, self).__init__()
