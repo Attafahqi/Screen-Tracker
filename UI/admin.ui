@@ -507,6 +507,106 @@ QPushButton:pressed {
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="TotalTimeButton">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>480</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
+    color: white;
+    border-radius: 10px;
+	font-size: 25px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;
+}
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 30, 180, 255), stop:1 rgba(50, 100, 200, 255));
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Total Time Graph</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Top10Button">
+   <property name="geometry">
+    <rect>
+     <x>1440</x>
+     <y>480</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>SF Pro Display</family>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(65, 141, 237, 255), stop:1 rgba(22, 55, 229, 255));
+    color: white;
+    border-radius: 10px;
+	font-size: 25px;
+font-family: &quot;SF Pro Display&quot;; 
+font-weight: bold; 
+font-style: normal;
+}
+
+
+QPushButton:pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(15, 30, 180, 255), stop:1 rgba(50, 100, 200, 255));
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Top 10 Activities Graph</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Graph_3">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>40</y>
+     <width>921</width>
+     <height>691</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/img/Trasnparant.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Shadow</zorder>
   <zorder>Background2_2</zorder>
@@ -524,6 +624,9 @@ QPushButton:pressed {
   <zorder>Details</zorder>
   <zorder>label</zorder>
   <zorder>Exit</zorder>
+  <zorder>TotalTimeButton</zorder>
+  <zorder>Top10Button</zorder>
+  <zorder>Graph_3</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

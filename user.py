@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 import matplotlib.dates as mdates
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QDesktopWidget, QTableWidgetItem, QHeaderView, QAbstractItemView
 from PyQt5 import uic
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtGui import QIcon
 import UI.res_rc
 
@@ -66,6 +66,7 @@ def generate_graphs(data, start_date, end_date):
         show = 1
 
     dates = [start_date + timedelta(days=i) for i in range((end_date - start_date).days + 1)]
+
     activities = set()
     for day_data in data.values():
         activities.update(day_data.keys())
@@ -82,30 +83,57 @@ def generate_graphs(data, start_date, end_date):
         data.get(date, {}).get(a, timedelta()).total_seconds() for date in dates
     ), reverse=True)[:10]
 
-    fig, ax = plt.subplots()
+    fig1, ax1 = plt.subplots()
+
     for activity in top_activities:
         hours = [data.get(date, {}).get(activity, timedelta()).total_seconds() / 3600 for date in dates]
-        ax.plot(dates, hours, label=activity)
+        ax1.plot(dates, hours, label=activity)
 
-    ax.set_xlabel('Date', color= 'white')
-    ax.set_ylabel('Hours', color= 'white')
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    ax.xaxis.set_major_locator(mdates.DayLocator(interval=show))
-    fig.autofmt_xdate()
-    ax.set_facecolor('white')
-    ax.tick_params(axis='both', colors='white')
-    ax.spines['top'].set_edgecolor('white')    
-    ax.spines['right'].set_edgecolor('white')  
-    ax.spines['bottom'].set_edgecolor('white') 
-    ax.spines['left'].set_edgecolor('white')
+    ax1.set_xlabel('Date', color='white')
+    ax1.set_ylabel('Hours per Activity', color='white')
+    ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    ax1.xaxis.set_major_locator(mdates.DayLocator(interval=show))  # Customize 'show' for date intervals
+    fig1.autofmt_xdate()
+
+    ax1.set_facecolor('white')
+    ax1.tick_params(axis='both', colors='white')
+    ax1.spines['top'].set_edgecolor('white')
+    ax1.spines['right'].set_edgecolor('white')
+    ax1.spines['bottom'].set_edgecolor('white')
+    ax1.spines['left'].set_edgecolor('white')
 
     plt.savefig('UI/user_graph.png', bbox_inches='tight', dpi=300, transparent=True)
 
-    handles, labels = ax.get_legend_handles_labels()
+    handles, labels = ax1.get_legend_handles_labels()
     fig_legend = plt.figure(figsize=(4, 2))
     fig_legend.legend(handles, labels, loc='center', fontsize=6)
     fig_legend.gca().axis('off')
     fig_legend.savefig('Ui/user_legend.png', bbox_inches='tight', dpi=300, transparent=True)
+
+    total_usage = []
+    for date in dates:
+        total_time = sum(data.get(date, {}).get(activity, timedelta()).total_seconds() for activity in data.get(date, {}))
+        total_usage.append(total_time / 3600)  # Convert seconds to hours
+
+    fig2, ax2 = plt.subplots()
+
+    ax2.plot(dates, total_usage, label='Total Activity Time', color='cyan')
+
+    ax2.set_xlabel('Date', color='white')
+    ax2.set_ylabel('Total Hours', color='white')
+    ax2.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    ax2.xaxis.set_major_locator(mdates.DayLocator(interval=show))
+    fig2.autofmt_xdate()
+
+    ax2.set_facecolor('white')
+    ax2.tick_params(axis='both', colors='white')
+    ax2.spines['top'].set_edgecolor('white')
+    ax2.spines['right'].set_edgecolor('white')
+    ax2.spines['bottom'].set_edgecolor('white')
+    ax2.spines['left'].set_edgecolor('white')
+
+    plt.savefig('UI/user_graph2.png', bbox_inches='tight', dpi=300, transparent=True)
+
 
     total_time_per_activity = {}
     for activity in activities:
@@ -140,11 +168,35 @@ class User (QMainWindow):
         self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
+        today = QDate.currentDate()
+        self.EndDate.setDate(today)
+        seven_days_ago = today.addDays(-7)
+        self.StartDate.setDate(seven_days_ago)
         self.show()
 
+        self.DeviceName.setText(device_name)
         self.Generate.clicked.connect(self.admin)
         self.Exit.clicked.connect(self.quit)
+        self.TotalTimeButton.clicked.connect(self.total_time)
+        self.Top10Button.clicked.connect(self.top_ten)
         self.Details.setHidden(True)
+        self.TotalTimeButton.setHidden(True)
+        self.Top10Button.setHidden(True)
+        self.Graph_3.setHidden(True)
+
+    def top_ten(self):
+        self.TotalTimeButton.setHidden(False)
+        self.Top10Button.setHidden(True)
+        self.Graph_3.setHidden(True)
+        self.Graph.setHidden(False)
+        self.Legend.setHidden(False)
+
+    def total_time(self):
+        self.TotalTimeButton.setHidden(True)
+        self.Top10Button.setHidden(False)
+        self.Graph_3.setHidden(False)
+        self.Graph.setHidden(True)
+        self.Legend.setHidden(True)
 
     def center(self):
         frame_geometry = self.frameGeometry()
@@ -175,11 +227,13 @@ class User (QMainWindow):
         self.Legend.repaint()
         self.Graph_2.setStyleSheet(f"border-image: url(UI/user_donutchart.png);")
         self.Graph_2.repaint()
-        self.DeviceName.setText(device_name)
+        self.Graph_3.setStyleSheet(f"border-image: url(UI/user_graph2.png);")
+        self.Graph.repaint()
         self.TotalText.setText("Total Screen Time in " + str(num_days+1) + " days")
         self.TotalTime.setText(formatted_time)
         data = 0
 
+        self.TotalTimeButton.setHidden(False)
         self.Details.setHidden(False)
         self.Details.clicked.connect(self.details)
     
