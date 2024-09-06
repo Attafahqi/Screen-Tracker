@@ -241,7 +241,7 @@ font-style: normal;
     <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
    </property>
    <property name="placeholderText">
-    <string>Device Name</string>
+    <string>Username</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Generate">
@@ -410,8 +410,6 @@ QPushButton:pressed {
      <weight>75</weight>
      <italic>false</italic>
      <bold>true</bold>
-     <strikeout>false</strikeout>
-     <kerning>true</kerning>
     </font>
    </property>
    <property name="styleSheet">
@@ -588,7 +586,7 @@ QPushButton:pressed {
 </string>
    </property>
    <property name="text">
-    <string>Top 10 Activities Graph</string>
+    <string>Activities Graph</string>
    </property>
   </widget>
   <widget class="QLabel" name="Graph_3">

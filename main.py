@@ -41,7 +41,7 @@ def check_device_file():
 class NewDevice(QMainWindow):
     def __init__(self):
         super(NewDevice, self).__init__()
-        uic.loadUi("UI/createdevice.ui", self)
+        uic.loadUi("UI/newdevice.ui", self)
         self.setWindowTitle("FAP TimeSpy")
         self.setWindowIcon(QIcon("UI/FAP Logo.png"))
         self.setWindowFlags(Qt.FramelessWindowHint)
