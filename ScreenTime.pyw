@@ -119,6 +119,25 @@ def data_exists(device_name):
     return ref.get() is not None
 
 def write_data(device_name, data):
+    device_name_file = 'DeviceName.json'
+    
+    # Check if DeviceName.json exists and is not empty
+    if not os.path.exists(device_name_file):
+        print(f"{device_name_file} not found. Data will not be sent to Firebase.")
+        return
+
+    with open(device_name_file, 'r') as file:
+        try:
+            device_info = json.load(file)
+        except json.JSONDecodeError:
+            print(f"{device_name_file} is empty or contains invalid JSON. Data will not be sent to Firebase.")
+            return
+
+    # Ensure the device_name and password fields exist in the file
+    if not device_info.get('device_name') or not device_info.get('password'):
+        print(f"{device_name_file} is missing required data (device_name or password). Data will not be sent to Firebase.")
+        return
+    
     ref = get_data_ref(device_name)
     ref.set(data)
 
@@ -129,6 +148,19 @@ def save_to_json(file_path, data):
 def load_from_json(file_path):
     with open(file_path, 'r') as json_file:
         return json.load(json_file)
+    
+def device_file_empty():
+    device_name_file = 'DeviceName.json'
+    with open(device_name_file, 'r') as file:
+        try:
+            device_info = json.load(file)
+        except json.JSONDecodeError:
+            print(f"{device_name_file} is empty or contains invalid JSON.")
+            return True
+    if not device_info.get('device_name') or not device_info.get('password'):
+        print(f"{device_name_file} is missing required data (device_name or password).")
+        return True
+    return False
 
 
 firebasecread_file = 'FirebaseCred.json'
@@ -166,41 +198,43 @@ else:
 
 try:
     while True:
-        previous_site = ""
-        new_window_name = get_active_window()
-        if 'Google Chrome' in new_window_name:
-            new_window_name = get_last_two_segments(new_window_name)
+        if not device_file_empty():
+            previous_site = ""
+            new_window_name = get_active_window()
+            if 'Google Chrome' in new_window_name:
+                new_window_name = get_last_two_segments(new_window_name)
 
-        if active_window_name != new_window_name:
-            print(active_window_name)
-            activity_name = active_window_name
+            if active_window_name != new_window_name:
+                print(active_window_name)
+                activity_name = active_window_name
 
-            if not first_time:
-                end_time = datetime.datetime.now()
-                time_entry = TimeEntry(start_time, end_time, 0, 0, 0, 0)
-                time_entry._get_specific_times()
+                if not first_time:
+                    end_time = datetime.datetime.now()
+                    time_entry = TimeEntry(start_time, end_time, 0, 0, 0, 0)
+                    time_entry._get_specific_times()
 
-                exists = False
-                for activity in activeList.activities:
-                    if activity.name == activity_name:
-                        exists = True
-                        activity.time_entries.append(time_entry)
+                    exists = False
+                    for activity in activeList.activities:
+                        if activity.name == activity_name:
+                            exists = True
+                            activity.time_entries.append(time_entry)
 
-                if not exists:
-                    activity = Activity(activity_name, [time_entry])
-                    activeList.activities.append(activity)
+                    if not exists:
+                        activity = Activity(activity_name, [time_entry])
+                        activeList.activities.append(activity)
 
-                firebase_data = {
-                    'password': password,
-                    'activities': activeList.serialize()['activities']
-                }
-                write_data(device_name, firebase_data)
                     
-                start_time = datetime.datetime.now()
-            first_time = False
-            active_window_name = new_window_name
+                    firebase_data = {
+                        'password': password,
+                        'activities': activeList.serialize()['activities']
+                    }
+                    write_data(device_name, firebase_data)
+                        
+                    start_time = datetime.datetime.now()
+                first_time = False
+                active_window_name = new_window_name
 
-        time.sleep(1)
+            time.sleep(1)
 
 except KeyboardInterrupt:
     firebase_data = {

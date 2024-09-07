@@ -26,7 +26,7 @@
 <tr>
 <td>
 
-Hello, Welcome to TimeSpy, a screentime data recorder and visualization program to help you track employee activities. The main goal of this program is so company or the employer can track their employee screen activities.
+Hello and welcome to TimeSpy, your go-to screentime tracking and visualization tool designed to bring clarity to employee activities in the digital workspace. Whether you're a company looking to boost productivity or an employer seeking to optimize workflow, TimeSpy is here to provide you with detailed insights into how screen time is being spent. By offering an intuitive platform that records, monitors, and visualizes screen activity, TimeSpy empowers organizations to track and analyze employee behavior, making it easier to identify patterns, enhance efficiency, and maintain accountability. Dive into the world of data-driven decision-making with TimeSpy, where every click tells a story!
 
 </td>
 </tr>
@@ -135,7 +135,7 @@ After receiving and extracting the zip file, you need to run the program by exec
 <table>
 <tr>
 <td>
-
+To schedule `ScreenTime.pyw` to run every time Windows boots up using Task Scheduler, start by opening Task Scheduler (search for it in the Start menu). Click on "Create Task" in the Actions pane. In the "General" tab, name your task (e.g., "ScreenTime Launch") and select "Run with highest privileges" if needed. Go to the "Triggers" tab, click "New...", and choose "At startup" to set the task to trigger when Windows starts. Next, in the "Actions" tab, click "New..." and select "Start a program" as the action. In the "Program/script" field, enter the path to your Python interpreter (e.g., `C:\Python39\pythonw.exe`), which runs Python scripts without opening a console window. In the "Add arguments" field, input the full path to your `ScreenTime.pyw` script (e.g., `C:\Scripts\ScreenTime.pyw`). Click "OK" to save each dialog. This setup ensures that `ScreenTime.pyw` runs automatically every time Windows boots up.
 </td>
 </tr>
 </table>
@@ -232,6 +232,7 @@ At TimeSpy, your privacy is important to us. We want to ensure that your data re
 <details>
 <summary>Puti Nabilah</summary>
   
+- **Backend Development:** Implement functionality to gather screen time data.
 - **Activity List:** Develop both the frontend and backend for managing the activity list.
 - **Total Time Calculation:** Create a program to calculate the total time spent on activities.
 - **Donut Chart:** Implement a program to generate a donut chart displaying the percentage of time used.
