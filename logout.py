@@ -22,7 +22,7 @@ def delete_file(file_path):
         print(f"{file_path} not found.")
 
 def main():
-    process_name = 'ScreenTime.pyc'  # 
+    process_name = 'ScreenTime.pyc'
     json_file_path = 'DeviceName.json' 
 
     if stop_process(process_name):
