@@ -238,7 +238,3 @@ At TimeSpy, your privacy is important to us. We want to ensure that your data re
 - **Donut Chart:** Implement a program to generate a donut chart displaying the percentage of time used.
 
 </details>
-<details>
-<summary>Ferdinand Sumichael Sunan</summary>
-
-</details>
